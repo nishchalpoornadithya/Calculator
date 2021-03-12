@@ -7,8 +7,7 @@ class Keyboard extends React.Component {
     super(props);
   }
 
-  handleButtonPress = (e, btn) => {
-    e.stopPropagation();
+  handleButtonPress = (btn) => {
     this.props.btnPressed(btn);
   };
 
@@ -17,9 +16,7 @@ class Keyboard extends React.Component {
       <div className="keyboard">
         <Button
           label={"("}
-          btnPressed={(e) => {
-            this.handleButtonPress(e, "(");
-          }}
+          btnPressed={this.handleButtonPress.bind(this, "(")}
         ></Button>
         <Button
           label={"9"}
